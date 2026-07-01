@@ -5,6 +5,7 @@ const TaskContext = createContext();
 
 function TaskProvider({ children }) {
   const [tasks, setTasks] = useState(() => {
+    taskService.initializeTasks();
     return taskService.getTasks();
   });
 
