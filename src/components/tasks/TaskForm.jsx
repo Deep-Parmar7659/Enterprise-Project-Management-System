@@ -15,6 +15,7 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
     assignee: initialData?.assignee ?? "",
     status: initialData?.status ?? PROJECT_STATUS.PENDING,
     priority: initialData?.priority ?? TASK_PRIORITY.MEDIUM,
+    dueDate: initialData?.dueDate ?? "",
   });
 
   const handleChange = (field, value) => {
@@ -40,6 +41,7 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
         assignee: "",
         status: PROJECT_STATUS.PENDING,
         priority: TASK_PRIORITY.MEDIUM,
+        dueDate: "",
       });
     }
   };
@@ -59,7 +61,7 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
       />
 
       <select
-        className="w-full border rounded-lg p-2"
+        className="w-full rounded-lg border p-2"
         value={formData.projectId}
         onChange={(e) => handleChange("projectId", e.target.value)}
       >
@@ -73,7 +75,7 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
       </select>
 
       <select
-        className="w-full border rounded-lg p-2"
+        className="w-full rounded-lg border p-2"
         value={formData.assignee}
         onChange={(e) => handleChange("assignee", e.target.value)}
       >
@@ -87,7 +89,7 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
       </select>
 
       <select
-        className="w-full border rounded-lg p-2"
+        className="w-full rounded-lg border p-2"
         value={formData.status}
         onChange={(e) => handleChange("status", e.target.value)}
       >
@@ -97,7 +99,7 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
       </select>
 
       <select
-        className="w-full border rounded-lg p-2"
+        className="w-full rounded-lg border p-2"
         value={formData.priority}
         onChange={(e) => handleChange("priority", e.target.value)}
       >
@@ -105,6 +107,13 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
         <option value={TASK_PRIORITY.MEDIUM}>Medium</option>
         <option value={TASK_PRIORITY.HIGH}>High</option>
       </select>
+
+      <input
+        type="date"
+        className="w-full rounded-lg border p-2"
+        value={formData.dueDate}
+        onChange={(e) => handleChange("dueDate", e.target.value)}
+      />
 
       <Button type="submit">{submitText}</Button>
     </form>

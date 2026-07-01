@@ -9,8 +9,8 @@ export const DEFAULT_TASKS = [
     assignee: "Admin User",
     status: PROJECT_STATUS.COMPLETED,
     priority: TASK_PRIORITY.HIGH,
+    dueDate: "2026-07-15",
   },
-
   {
     id: 2,
     title: "Create Dashboard",
@@ -19,5 +19,6 @@ export const DEFAULT_TASKS = [
     assignee: "Manager User",
     status: PROJECT_STATUS.IN_PROGRESS,
     priority: TASK_PRIORITY.MEDIUM,
+    dueDate: "2026-07-20",
   },
 ];
