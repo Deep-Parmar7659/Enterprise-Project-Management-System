@@ -1,3 +1,5 @@
+import { PROJECT_STATUS, TASK_PRIORITY } from "../constants";
+
 export const DEFAULT_TASKS = [
   {
     id: 1,
@@ -5,7 +7,8 @@ export const DEFAULT_TASKS = [
     description: "Implement Login Module",
     projectId: 1,
     assignee: "Admin User",
-    status: "Completed",
+    status: PROJECT_STATUS.COMPLETED,
+    priority: TASK_PRIORITY.HIGH,
   },
 
   {
@@ -14,6 +17,7 @@ export const DEFAULT_TASKS = [
     description: "Build Dashboard UI",
     projectId: 1,
     assignee: "Manager User",
-    status: "In Progress",
+    status: PROJECT_STATUS.IN_PROGRESS,
+    priority: TASK_PRIORITY.MEDIUM,
   },
 ];

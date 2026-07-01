@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Input } from "../ui";
-import { PROJECT_STATUS } from "../../constants";
+import { PROJECT_STATUS, TASK_PRIORITY } from "../../constants";
 import { userService } from "../../services/userService";
 import useProjects from "../../hooks/useProjects";
 
@@ -14,6 +14,7 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
     projectId: initialData?.projectId ?? "",
     assignee: initialData?.assignee ?? "",
     status: initialData?.status ?? PROJECT_STATUS.PENDING,
+    priority: initialData?.priority ?? TASK_PRIORITY.MEDIUM,
   });
 
   const handleChange = (field, value) => {
@@ -38,6 +39,7 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
         projectId: "",
         assignee: "",
         status: PROJECT_STATUS.PENDING,
+        priority: TASK_PRIORITY.MEDIUM,
       });
     }
   };
@@ -90,10 +92,18 @@ function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
         onChange={(e) => handleChange("status", e.target.value)}
       >
         <option value={PROJECT_STATUS.PENDING}>Pending</option>
-
         <option value={PROJECT_STATUS.IN_PROGRESS}>In Progress</option>
-
         <option value={PROJECT_STATUS.COMPLETED}>Completed</option>
+      </select>
+
+      <select
+        className="w-full border rounded-lg p-2"
+        value={formData.priority}
+        onChange={(e) => handleChange("priority", e.target.value)}
+      >
+        <option value={TASK_PRIORITY.LOW}>Low</option>
+        <option value={TASK_PRIORITY.MEDIUM}>Medium</option>
+        <option value={TASK_PRIORITY.HIGH}>High</option>
       </select>
 
       <Button type="submit">{submitText}</Button>
