@@ -4,6 +4,8 @@ import DashboardProgress from "../../components/dashboard/DashboardProgress";
 import DashboardActivity from "../../components/dashboard/DashboardActivity";
 import DashboardDeadlines from "../../components/dashboard/DashboardDeadlines";
 import DashboardQuickActions from "../../components/dashboard/DashboardQuickActions";
+import RecentProjects from "../../components/dashboard/RecentProjects";
+import RecentTasks from "../../components/dashboard/RecentTasks";
 
 function Dashboard() {
   return (
@@ -21,6 +23,9 @@ function Dashboard() {
         <DashboardDeadlines />
         <DashboardQuickActions />
       </div>
+
+      <RecentProjects />
+      <RecentTasks />
     </div>
   );
 }
