@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Button, Input } from "../ui";
 import { PROJECT_STATUS } from "../../constants";
 import { userService } from "../../services/userService";
-import { projectService } from "../../services/projectService";
+import useProjects from "../../hooks/useProjects";
 
 function TaskForm({ onSubmit, initialData, submitText = "Create Task" }) {
   const users = userService.getUsers();
-  const projects = projectService.getProjects();
+  const { projects } = useProjects();
 
   const [formData, setFormData] = useState({
     title: initialData?.title ?? "",
