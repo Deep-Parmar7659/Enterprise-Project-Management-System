@@ -6,6 +6,7 @@ import DashboardDeadlines from "../../components/dashboard/DashboardDeadlines";
 import DashboardQuickActions from "../../components/dashboard/DashboardQuickActions";
 import RecentProjects from "../../components/dashboard/RecentProjects";
 import RecentTasks from "../../components/dashboard/RecentTasks";
+import UpcomingDeadlines from "../../components/dashboard/UpcomingDeadlines";
 
 function Dashboard() {
   return (
@@ -26,6 +27,7 @@ function Dashboard() {
 
       <RecentProjects />
       <RecentTasks />
+      <UpcomingDeadlines />
     </div>
   );
 }

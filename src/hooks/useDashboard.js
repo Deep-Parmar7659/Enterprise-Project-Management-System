@@ -25,6 +25,11 @@ function useDashboard() {
     const completionRate =
       totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
 
+    const upcomingTasks = [...tasks]
+      .filter((task) => task.dueDate)
+      .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+      .slice(0, 5);
+
     return {
       totalProjects,
       totalTasks,
@@ -32,6 +37,7 @@ function useDashboard() {
       pendingTasks,
       highPriorityTasks,
       completionRate,
+      upcomingTasks,
     };
   }, [projects, tasks]);
 
